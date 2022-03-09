@@ -12,16 +12,28 @@ export class RequestsService {
 
   constructor(private http: HttpClient) { }
 
-  getRequests(): Observable<Request[]> {
-    return this.http.get<Request[]>(`${baseUrl}/requests`);
+  getManagerRequests(): Observable<Request[]> {
+    return this.http.get<Request[]>(`${baseUrl}/manager/requests`);
   }
 
-  getPending(): Observable<Request[]> {
-    return this.http.get<Request[]>(`${baseUrl}/requests/pending`);
+  getManagerPending(): Observable<Request[]> {
+    return this.http.get<Request[]>(`${baseUrl}/manager/requests/pending`);
   }
 
-  getResolved(): Observable<Request[]> {
-    return this.http.get<Request[]>(`${baseUrl}/requests/resolved`)
+  getManagerResolved(): Observable<Request[]> {
+    return this.http.get<Request[]>(`${baseUrl}/manager/requests/resolved`)
+  }
+
+  getAssociateRequests(employeeId: number): Observable<Request[]> {
+    return this.http.get<Request[]>(`${baseUrl}/associate/requests/${employeeId}`);
+  }
+
+  getAssociatePending(employeeId: number): Observable<Request[]> {
+    return this.http.get<Request[]>(`${baseUrl}/associate/requests/pending/${employeeId}`);
+  }
+
+  getAssociateResolved(employeeId: number): Observable<Request[]> {
+    return this.http.get<Request[]>(`${baseUrl}/associate/requests/resolved/${employeeId}`)
   }
 
 

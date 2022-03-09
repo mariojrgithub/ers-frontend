@@ -3,6 +3,6 @@ export class Employee {
     employeeRole?: string;
     employeeEmail?: string;
     employeePassword?: string;
-    expenseId?: number;
+    expenseId?: any = "";
     employeeName?: string;
 }
