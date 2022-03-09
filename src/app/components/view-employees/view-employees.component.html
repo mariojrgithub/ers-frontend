@@ -1,1 +1,23 @@
-<p>view-employees works!</p>
+<div class="container">
+    <h3>Employees</h3>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Email</th>
+            <th>Expense ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td>{{ employee.employeeId }}</td>
+            <td>{{ employee.employeeName }}</td>
+            <td>{{ employee.employeeRole }}</td>
+            <td>{{ employee.employeeEmail }}</td>
+            <td>{{ employee.expenseId }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
