@@ -5,5 +5,5 @@ export class Request {
     requestDate?: string;
     expenseStatus?: string;
     adjudicatedDate?: string;
-
+    approveDeny?: string;
 }

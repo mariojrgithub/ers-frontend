@@ -3,6 +3,5 @@ export class Employee {
     employeeRole?: string;
     employeeEmail?: string;
     employeePassword?: string;
-    expenseId?: any = "";
     employeeName?: string;
 }

@@ -16,8 +16,11 @@ export class EditRequestManagerComponent implements OnInit {
     employeeId: 0,
     requestDate: "",
     expenseStatus: "",
-    adjudicatedDate: ""
+    adjudicatedDate: "",
+    approveDeny: ""
   }
+
+  selections: any[] = ['approve', 'deny'];
 
   constructor(private requestService: RequestsService, private activatedRoute: ActivatedRoute) { }
 

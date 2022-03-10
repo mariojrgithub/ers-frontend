@@ -63,6 +63,15 @@
                   />
               </div>
 
+              <div class="mb-3 mt-3">
+                <label for="approveDeny" class="form-label">Approve/Deny: </label>
+                <select name="approveDeny" id="approveDeny" [(ngModel)]="newRequest.approveDeny">
+                  <option *ngFor="let selection of selections" [value]="selection.value">{{ selection }}</option>
+                </select>
+                
+              </div>
+
+
           </form>
         </div>
         <div class="card-footer bg-success">
