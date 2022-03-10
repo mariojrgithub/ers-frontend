@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { ViewResolvedManagerComponent } from './components/manager/view-resolved
 import { ViewRequestsAssociateComponent } from './components/associate/view-requests-associate/view-requests-associate.component';
 import { ViewPendingAssociateComponent } from './components/associate/view-pending-associate/view-pending-associate.component';
 import { ViewResolvedAssociateComponent } from './components/associate/view-resolved-associate/view-resolved-associate.component';
+import { AddRequestComponent } from './components/associate/add-request/add-request.component';
+import { EditRequestManagerComponent } from './components/manager/edit-request-manager/edit-request-manager.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,12 +27,15 @@ import { ViewResolvedAssociateComponent } from './components/associate/view-reso
     ViewResolvedManagerComponent,
     ViewRequestsAssociateComponent,
     ViewPendingAssociateComponent,
-    ViewResolvedAssociateComponent
+    ViewResolvedAssociateComponent,
+    AddRequestComponent,
+    EditRequestManagerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule, 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

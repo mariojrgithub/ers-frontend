@@ -21,7 +21,11 @@ export class RequestsService {
   }
 
   getManagerResolved(): Observable<Request[]> {
-    return this.http.get<Request[]>(`${baseUrl}/manager/requests/resolved`)
+    return this.http.get<Request[]>(`${baseUrl}/manager/requests/resolved`);
+  }
+
+  getRequestById(requestId: number): Observable<Request> {
+    return this.http.get<Request>(`${baseUrl}/manager/request/${requestId}`);
   }
 
   getAssociateRequests(employeeId: number): Observable<Request[]> {
@@ -33,8 +37,17 @@ export class RequestsService {
   }
 
   getAssociateResolved(employeeId: number): Observable<Request[]> {
-    return this.http.get<Request[]>(`${baseUrl}/associate/requests/resolved/${employeeId}`)
+    return this.http.get<Request[]>(`${baseUrl}/associate/requests/resolved/${employeeId}`);
   }
 
+
+  addRequest(requestModel: Request): Observable<Request> {
+    return this.http.post<Request>(`${baseUrl}/associate/requests/add`, requestModel);
+  }
+
+  
+  // updateRequest(request: Request): Observable<Request> {
+  //   return this.http.put<Request>(`${baseUrl}/manager/`)
+  // }
 
 }

@@ -8,6 +8,8 @@ import { ViewRequestsManagerComponent } from './components/manager/view-requests
 import { ViewRequestsAssociateComponent } from './components/associate/view-requests-associate/view-requests-associate.component';
 import { ViewPendingAssociateComponent } from './components/associate/view-pending-associate/view-pending-associate.component';
 import { ViewResolvedAssociateComponent } from './components/associate/view-resolved-associate/view-resolved-associate.component';
+import { AddRequestComponent } from './components/associate/add-request/add-request.component';
+import { EditRequestManagerComponent } from './components/manager/edit-request-manager/edit-request-manager.component';
 
 import { LoginComponent } from './components/login/login.component';
 
@@ -22,7 +24,9 @@ const routes: Routes = [
 
   { path: 'associate/requests', component: ViewRequestsAssociateComponent },
   { path: 'associate/requests/pending', component: ViewPendingAssociateComponent },
-  { path: 'associate/requests/resolved', component: ViewResolvedAssociateComponent }
+  { path: 'associate/requests/resolved', component: ViewResolvedAssociateComponent },
+  { path: 'associate/requests/add', component: AddRequestComponent },
+  { path: 'manager/requests/edit', component: EditRequestManagerComponent }
 
 ];
 
