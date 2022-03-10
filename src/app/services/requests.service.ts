@@ -46,8 +46,8 @@ export class RequestsService {
   }
 
   
-  // updateRequest(request: Request): Observable<Request> {
-  //   return this.http.put<Request>(`${baseUrl}/manager/`)
-  // }
+  updateRequest(request: Request): Observable<Request> {
+    return this.http.put<Request>(`${baseUrl}/manager/requests`, request);
+  }
 
 }

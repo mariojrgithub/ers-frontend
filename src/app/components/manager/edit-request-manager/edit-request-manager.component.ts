@@ -22,7 +22,9 @@ export class EditRequestManagerComponent implements OnInit {
 
   selections: any[] = ['approve', 'deny'];
 
-  constructor(private requestService: RequestsService, private activatedRoute: ActivatedRoute) { }
+  submitted = false;
+
+  constructor(private requestService: RequestsService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     let requestId: any = this.activatedRoute.snapshot.paramMap.get("expenseId");
@@ -37,6 +39,32 @@ export class EditRequestManagerComponent implements OnInit {
           })
   }
 
+  editRequest(): void {
+    this.requestService.updateRequest(this.newRequest)
+      .subscribe({
+        next: (request) => {
+          console.log(request);
+          this.submitted = true;
+
+          if(this.submitted){
+            this.router.navigate(['/manager/requests']);
+          }
+
+          this.newRequest = {
+            expenseId: 0,
+            expenseAmount: 0,
+            employeeId: 0,
+            requestDate: "",
+            expenseStatus: "",
+            adjudicatedDate: "",
+            approveDeny: ""
+          }
+
+        }, 
+        error: (e) => console.log(e)
+
+      })
+  }
   
 
 }
