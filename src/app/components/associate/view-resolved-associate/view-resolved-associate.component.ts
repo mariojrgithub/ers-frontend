@@ -18,7 +18,10 @@ export class ViewResolvedAssociateComponent implements OnInit {
   }
 
   retrieveResolved(): void {
-    this.requestService.getAssociateResolved(1)
+
+    let id = sessionStorage.getItem("id");
+
+    this.requestService.getAssociateResolved(Number(id))
         .subscribe({
           next: (requests) => {
           this.requests = requests;

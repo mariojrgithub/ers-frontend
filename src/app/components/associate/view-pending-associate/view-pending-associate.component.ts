@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestsService } from 'src/app/services/requests.service';
 import { Request } from 'src/app/models/Request';
+import { Employee } from 'src/app/models/Employee';
 
 @Component({
   selector: 'app-view-pending-associate',
@@ -18,7 +19,10 @@ export class ViewPendingAssociateComponent implements OnInit {
   }
 
   retrievePending(): void {
-    this.requestService.getAssociatePending(1)
+
+    let id = sessionStorage.getItem("id");
+
+    this.requestService.getAssociatePending(Number(id))
         .subscribe({
           next: (requests) => {
           this.requests = requests;

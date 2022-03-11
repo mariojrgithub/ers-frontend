@@ -29,21 +29,27 @@ export class LoginComponent implements OnInit {
     this.employeeService.loginEmployee(this.newEmployee)
         .subscribe({
           next: (employee) => {
-          this.employee = employee;
-          console.log(employee);
-          this.submitted = true;
 
-          this.employeeService.validateEmployee(employee);
+          if(employee == null) {
+            alert("Please Enter the Correct Login Info!")
+          } else {
 
-          if(this.submitted && employee.employeeRole == 'manager'){
-            this.router.navigate(['/manager/requests']);
-          } 
-    
-          this.newEmployee = {
-            employeeEmail: "",
-            employeePassword: "",
-            employeeRole: ""
-          }
+              this.employee = employee;
+              console.log(employee);
+              this.submitted = true;
+
+              this.employeeService.validateEmployee(employee);
+
+              if(this.submitted && employee.employeeRole == 'manager'){
+                this.router.navigate(['/manager/requests']);
+              } 
+        
+              this.newEmployee = {
+                employeeEmail: "",
+                employeePassword: "",
+                employeeRole: ""
+              }
+        }
 
         },
         error: (e) => console.log(e)
@@ -51,8 +57,8 @@ export class LoginComponent implements OnInit {
   
   }
 
-  validateEmployee() {
-    this.employeeService.validateEmployee(this.newEmployee);
-  }
+  // validateEmployee() {
+  //   this.employeeService.validateEmployee(this.newEmployee);
+  // }
 
 }

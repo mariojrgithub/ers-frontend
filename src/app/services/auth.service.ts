@@ -8,18 +8,25 @@ export class AuthService {
 
   loggedIn: boolean = false;
 
+  employeeRole? = "";
+
   constructor() { }
 
   storeEmployee(employee: Employee): void {
-    sessionStorage.setItem("userInfo", JSON.stringify(employee));
+    sessionStorage.setItem("role", JSON.stringify(employee.employeeRole));
+    sessionStorage.setItem("id", JSON.stringify(employee.employeeId));
+    this.employeeRole = employee.employeeRole;
+    
   }
 
   retrieveEmployee(): Employee {
     let data: any = sessionStorage.getItem("userInfo");
     return data;
+
   }
 
   destroyEmployee(): void {
-    sessionStorage.removeItem("userInfo");
+    sessionStorage.removeItem("role");
+    sessionStorage.removeItem("id");
   }
 }

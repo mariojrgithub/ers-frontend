@@ -18,7 +18,10 @@ export class ViewRequestsAssociateComponent implements OnInit {
   }
 
   retrieveRequests(): void {
-    this.requestService.getAssociateRequests(1)
+
+    let id = sessionStorage.getItem("id");
+
+    this.requestService.getAssociateRequests(Number(id))
         .subscribe({
           next: (requests) => {
           this.requests = requests;

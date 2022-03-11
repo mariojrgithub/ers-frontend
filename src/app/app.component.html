@@ -3,29 +3,29 @@
       <a href="#" class="navbar-brand">ERS Manager</a>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a routerLink="manager/all-employees" class="nav-link">Employees</a>
+          <a routerLink="manager/all-employees" class="nav-link" *ngIf="isLoggedIn() == true && getRole() == 'manager'">Employees</a>
         </li>
         <li class="nav-item">
-          <a routerLink="manager/requests" class="nav-link">M-Requests</a>
+          <a routerLink="manager/requests" class="nav-link" *ngIf="isLoggedIn() == true && getRole() == 'manager'">M-Requests</a>
         </li>
         <li class="nav-item">
-          <a routerLink="manager/requests/pending" class="nav-link">M-Pending</a>
+          <a routerLink="manager/requests/pending" class="nav-link" *ngIf="isLoggedIn() == true && getRole() == 'manager'">M-Pending</a>
         </li>
         <li class="nav-item">
-          <a routerLink="manager/requests/resolved" class="nav-link">M-Resolved</a>
+          <a routerLink="manager/requests/resolved" class="nav-link" *ngIf="isLoggedIn() == true && getRole() == 'manager'">M-Resolved</a>
         </li>
 
         <li class="nav-item">
-          <a routerLink="associate/requests" class="nav-link">A-Requests</a>
+          <a routerLink="associate/requests" class="nav-link" *ngIf="isLoggedIn() == true && getRole() == 'associate'">A-Requests</a>
         </li>
         <li class="nav-item">
-          <a routerLink="associate/requests/pending" class="nav-link">A-Pending</a>
+          <a routerLink="associate/requests/pending" class="nav-link" *ngIf="isLoggedIn() == true && getRole() == 'associate'">A-Pending</a>
         </li>
         <li class="nav-item">
-          <a routerLink="associate/requests/resolved" class="nav-link">A-Resolved</a>
+          <a routerLink="associate/requests/resolved" class="nav-link" *ngIf="isLoggedIn() == true && getRole() == 'associate'">A-Resolved</a>
         </li>
         <li class="nav-item">
-          <a routerLink="associate/requests/add" class="nav-link">Add Request</a>
+          <a routerLink="associate/requests/add" class="nav-link" *ngIf="isLoggedIn() == true && getRole() == 'associate'">Add Request</a>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn()">
           <a class="nav-link" routerLink="logout">Logout</a>
