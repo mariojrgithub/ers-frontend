@@ -40,6 +40,7 @@ export class EditRequestManagerComponent implements OnInit {
   }
 
   editRequest(): void {
+
     this.requestService.updateRequest(this.newRequest)
       .subscribe({
         next: (request) => {
@@ -64,6 +65,7 @@ export class EditRequestManagerComponent implements OnInit {
         error: (e) => console.log(e)
 
       })
+  
   }
   
 

@@ -16,14 +16,17 @@ export class AddRequestComponent implements OnInit {
   }
   submitted = false;
 
-  id = sessionStorage.getItem("id");
-
   constructor(private requestService: RequestsService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   addRequest(): void {
+
+    if(this.newRequest.employeeId == 0|| this.newRequest.expenseAmount == 0){
+      alert("Please enter the proper information")
+    } else {
+
     this.requestService.addRequest(this.newRequest)
         .subscribe({
           next: (request) => {
@@ -41,7 +44,7 @@ export class AddRequestComponent implements OnInit {
         },
         error: (e) => console.log(e)
       })   
-      
+    }
   }
 
 }
