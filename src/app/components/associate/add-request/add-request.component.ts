@@ -16,6 +16,8 @@ export class AddRequestComponent implements OnInit {
   }
   submitted = false;
 
+  id = sessionStorage.getItem("id");
+
   constructor(private requestService: RequestsService, private router: Router) { }
 
   ngOnInit(): void {

@@ -10,6 +10,7 @@ import { ViewPendingAssociateComponent } from './components/associate/view-pendi
 import { ViewResolvedAssociateComponent } from './components/associate/view-resolved-associate/view-resolved-associate.component';
 import { AddRequestComponent } from './components/associate/add-request/add-request.component';
 import { EditRequestManagerComponent } from './components/manager/edit-request-manager/edit-request-manager.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
@@ -18,16 +19,17 @@ const routes: Routes = [
 
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
-  { path: 'manager/all-employees', component: ViewEmployeesComponent },
-  { path: 'manager/requests', component: ViewRequestsManagerComponent },
-  { path: 'manager/requests/pending', component: ViewPendingManagerComponent },
-  { path: 'manager/requests/resolved', component: ViewResolvedManagerComponent },
+  { path: 'manager/all-employees', component: ViewEmployeesComponent, canActivate: [AuthGuardService] },
+  { path: 'manager/requests', component: ViewRequestsManagerComponent, canActivate: [AuthGuardService] },
+  { path: 'manager/requests/pending', component: ViewPendingManagerComponent, canActivate: [AuthGuardService] },
+  { path: 'manager/requests/resolved', component: ViewResolvedManagerComponent, canActivate: [AuthGuardService] },
+  { path: 'manager/requests/edit', component: EditRequestManagerComponent, canActivate: [AuthGuardService] },
 
-  { path: 'associate/requests', component: ViewRequestsAssociateComponent },
-  { path: 'associate/requests/pending', component: ViewPendingAssociateComponent },
-  { path: 'associate/requests/resolved', component: ViewResolvedAssociateComponent },
-  { path: 'associate/requests/add', component: AddRequestComponent },
-  { path: 'manager/requests/edit', component: EditRequestManagerComponent },
+  { path: 'associate/requests', component: ViewRequestsAssociateComponent, canActivate: [AuthGuardService] },
+  { path: 'associate/requests/pending', component: ViewPendingAssociateComponent, canActivate: [AuthGuardService] },
+  { path: 'associate/requests/resolved', component: ViewResolvedAssociateComponent, canActivate: [AuthGuardService] },
+  { path: 'associate/requests/add', component: AddRequestComponent, canActivate: [AuthGuardService] },
+  
   { path: "logout", component: LogoutComponent }
 
 ];

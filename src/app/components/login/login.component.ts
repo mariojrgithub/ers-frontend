@@ -42,7 +42,9 @@ export class LoginComponent implements OnInit {
 
               if(this.submitted && employee.employeeRole == 'manager'){
                 this.router.navigate(['/manager/requests']);
-              } 
+              } else if(this.submitted && employee.employeeRole == 'associate'){
+                this.router.navigate(['/associate/requests']);
+              }
         
               this.newEmployee = {
                 employeeEmail: "",
