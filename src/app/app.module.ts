@@ -16,6 +16,7 @@ import { ViewPendingAssociateComponent } from './components/associate/view-pendi
 import { ViewResolvedAssociateComponent } from './components/associate/view-resolved-associate/view-resolved-associate.component';
 import { AddRequestComponent } from './components/associate/add-request/add-request.component';
 import { EditRequestManagerComponent } from './components/manager/edit-request-manager/edit-request-manager.component';
+import { LogoutComponent } from './components/logout/logout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { EditRequestManagerComponent } from './components/manager/edit-request-m
     ViewPendingAssociateComponent,
     ViewResolvedAssociateComponent,
     AddRequestComponent,
-    EditRequestManagerComponent
+    EditRequestManagerComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

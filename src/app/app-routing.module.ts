@@ -12,6 +12,7 @@ import { AddRequestComponent } from './components/associate/add-request/add-requ
 import { EditRequestManagerComponent } from './components/manager/edit-request-manager/edit-request-manager.component';
 
 import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 const routes: Routes = [
 
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'associate/requests/pending', component: ViewPendingAssociateComponent },
   { path: 'associate/requests/resolved', component: ViewResolvedAssociateComponent },
   { path: 'associate/requests/add', component: AddRequestComponent },
-  { path: 'manager/requests/edit', component: EditRequestManagerComponent }
+  { path: 'manager/requests/edit', component: EditRequestManagerComponent },
+  { path: "logout", component: LogoutComponent }
 
 ];
 

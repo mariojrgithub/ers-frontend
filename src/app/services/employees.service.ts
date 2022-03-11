@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Employee } from '../models/Employee'; 
+import { AuthService } from './auth.service';
 
 const baseUrl = 'http://localhost:4040/api';
 
@@ -10,10 +11,21 @@ const baseUrl = 'http://localhost:4040/api';
 })
 export class EmployeesService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(`${baseUrl}/manager/all-employees`);
+  }
+
+  loginEmployee(employee: Employee): Observable<Employee> {
+
+    return this.http.post(`${baseUrl}/login`, employee);
+  }
+
+  validateEmployee(newEmployee: Employee): void {
+    this.authService.storeEmployee(newEmployee);
+
+    this.authService.loggedIn = true;
   }
 
 }

@@ -20,7 +20,7 @@ export class EditRequestManagerComponent implements OnInit {
     approveDeny: ""
   }
 
-  selections: any[] = ['approve', 'deny'];
+  selections = ["approve", "deny"];
 
   submitted = false;
 

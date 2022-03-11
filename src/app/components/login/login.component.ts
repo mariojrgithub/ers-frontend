@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeesService } from 'src/app/services/employees.service';
+import { Employee } from 'src/app/models/Employee';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  employee?: Employee;
+
+  newEmployee: Employee = {
+    employeeEmail: "",
+    employeePassword: "",
+    employeeRole: ""
+  }
+
+  submitted = false;
+
+  constructor(private employeeService: EmployeesService, private router: Router) { }
 
   ngOnInit(): void {
+
+  }
+  retrieveEmployee(): void {
+    this.employeeService.loginEmployee(this.newEmployee)
+        .subscribe({
+          next: (employee) => {
+          this.employee = employee;
+          console.log(employee);
+          this.submitted = true;
+
+          this.employeeService.validateEmployee(employee);
+
+          if(this.submitted && employee.employeeRole == 'manager'){
+            this.router.navigate(['/manager/requests']);
+          } 
+    
+          this.newEmployee = {
+            employeeEmail: "",
+            employeePassword: "",
+            employeeRole: ""
+          }
+
+        },
+        error: (e) => console.log(e)
+      }) 
+  
+  }
+
+  validateEmployee() {
+    this.employeeService.validateEmployee(this.newEmployee);
   }
 
 }
