@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Request } from '../models/Request';
+// import { ImageFile } from '../models/ImageFile';
 
-const baseUrl = 'http://localhost:4040/api';
+const baseUrl = 'http://localhost:4444/api';
 
+const headers = new HttpHeaders()
+      .set('Content-Type', 'multipart/form-data')
 @Injectable({
   providedIn: 'root'
 })
@@ -48,6 +51,10 @@ export class RequestsService {
   
   updateRequest(request: Request): Observable<Request> {
     return this.http.put<Request>(`${baseUrl}/manager/requests`, request);
+  }
+
+  uploadImage(file: any): Observable<any> {
+    return this.http.post<any>(`${baseUrl}/manager/pic-upload`, file);
   }
 
 }

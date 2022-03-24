@@ -15,6 +15,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
+import { PicUploadComponent } from './components/pic-upload/pic-upload.component';
+
 const routes: Routes = [
 
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -30,7 +32,9 @@ const routes: Routes = [
   { path: 'associate/requests/resolved', component: ViewResolvedAssociateComponent, canActivate: [AuthGuardService] },
   { path: 'associate/requests/add', component: AddRequestComponent, canActivate: [AuthGuardService] },
   
-  { path: "logout", component: LogoutComponent }
+  { path: "logout", component: LogoutComponent },
+
+  { path:"manager/pic-upload", component: PicUploadComponent }
 
 ];
 

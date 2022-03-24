@@ -17,6 +17,7 @@ import { ViewResolvedAssociateComponent } from './components/associate/view-reso
 import { AddRequestComponent } from './components/associate/add-request/add-request.component';
 import { EditRequestManagerComponent } from './components/manager/edit-request-manager/edit-request-manager.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { PicUploadComponent } from './components/pic-upload/pic-upload.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     ViewResolvedAssociateComponent,
     AddRequestComponent,
     EditRequestManagerComponent,
-    LogoutComponent
+    LogoutComponent,
+    PicUploadComponent
   ],
   imports: [
     BrowserModule,
