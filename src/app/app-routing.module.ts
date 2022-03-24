@@ -16,6 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
 import { PicUploadComponent } from './components/pic-upload/pic-upload.component';
+import { AllPicsComponent } from './components/all-pics/all-pics.component';
 
 const routes: Routes = [
 
@@ -34,7 +35,8 @@ const routes: Routes = [
   
   { path: "logout", component: LogoutComponent },
 
-  { path:"manager/pic-upload", component: PicUploadComponent }
+  { path:"manager/pic-upload", component: PicUploadComponent },
+  { path:"manager/all-pics", component: AllPicsComponent }
 
 ];
 

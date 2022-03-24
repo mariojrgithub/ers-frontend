@@ -57,4 +57,7 @@ export class RequestsService {
     return this.http.post<any>(`${baseUrl}/manager/pic-upload`, file);
   }
 
+  getAllPics(): Observable<any> {
+    return this.http.get<any>(`${baseUrl}/manager/all-pics`);
+  }
 }

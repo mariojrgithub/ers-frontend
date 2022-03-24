@@ -18,6 +18,7 @@ import { AddRequestComponent } from './components/associate/add-request/add-requ
 import { EditRequestManagerComponent } from './components/manager/edit-request-manager/edit-request-manager.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { PicUploadComponent } from './components/pic-upload/pic-upload.component';
+import { AllPicsComponent } from './components/all-pics/all-pics.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { PicUploadComponent } from './components/pic-upload/pic-upload.component
     AddRequestComponent,
     EditRequestManagerComponent,
     LogoutComponent,
-    PicUploadComponent
+    PicUploadComponent,
+    AllPicsComponent
   ],
   imports: [
     BrowserModule,
