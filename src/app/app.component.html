@@ -14,6 +14,12 @@
         <li class="nav-item">
           <a routerLink="manager/requests/resolved" class="nav-link" *ngIf="isLoggedIn() == true && getRole() == 'manager'">M-Resolved</a>
         </li>
+        <li class="nav-item">
+          <a routerLink="manager/pic-upload" class="nav-link" *ngIf="isLoggedIn() == true && getRole() == 'manager'">M-Upload Image</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="manager/all-pics" class="nav-link" *ngIf="isLoggedIn() == true && getRole() == 'manager'">M-View Images</a>
+        </li>
 
         <li class="nav-item">
           <a routerLink="associate/requests" class="nav-link" *ngIf="isLoggedIn() == true && getRole() == 'associate'">A-Requests</a>

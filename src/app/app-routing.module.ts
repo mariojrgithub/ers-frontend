@@ -35,8 +35,8 @@ const routes: Routes = [
   
   { path: "logout", component: LogoutComponent },
 
-  { path:"manager/pic-upload", component: PicUploadComponent },
-  { path:"manager/all-pics", component: AllPicsComponent }
+  { path:"manager/pic-upload", component: PicUploadComponent, canActivate: [AuthGuardService] },
+  { path:"manager/all-pics", component: AllPicsComponent, canActivate: [AuthGuardService] }
 
 ];
 

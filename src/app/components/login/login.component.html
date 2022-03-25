@@ -32,18 +32,11 @@
               /> 
             </div>
             <div class="mb-3 mt-3">
-                <label for="employeeRole" class="form-label">Role:</label>
-                <input
-                  required
-                  type="text"
-                  class="form-control"
-                  id="employeeRole"
-                  placeholder="Enter your role"
-                  name="employeeRole"
-                  [(ngModel)]="newEmployee.employeeRole"
-                  />
-              </div>
-              
+              <label for="employeeRole" class="form-label">Role: </label>
+              <select name="employeeRole" id="employeeRole" [(ngModel)]="newEmployee.employeeRole">
+                <option *ngFor="let selection of selections" [value]="selection">{{ selection }}</option>
+              </select>
+            </div>              
           </form>
         </div>
         <div class="card-footer bg-success">

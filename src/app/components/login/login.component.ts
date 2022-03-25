@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
 
   submitted = false;
 
+  selections = ["associate", "manager"];
+
   constructor(private employeeService: EmployeesService, private router: Router) { }
 
   ngOnInit(): void {

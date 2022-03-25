@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestsService } from 'src/app/services/requests.service';
-// import { ImageFile } from 'src/app/models/ImageFile';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pic-upload',
@@ -13,7 +13,9 @@ export class PicUploadComponent implements OnInit {
   currentFile?: any;
   fileInfos?: any;
 
-  constructor(private requestService: RequestsService) { }
+  submitted = false;
+
+  constructor(private requestService: RequestsService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -37,6 +39,12 @@ export class PicUploadComponent implements OnInit {
       .subscribe({
         next: (event) => {
           console.log(event);
+
+          this.submitted = true;
+
+          if(this.submitted){
+            this.router.navigate(['/manager/all-pics']);
+          }
         },
         error: (e) => console.log(e) 
       });
